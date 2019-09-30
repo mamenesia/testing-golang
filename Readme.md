@@ -44,3 +44,13 @@
       <image width="500" src="./screenshot/count_test.png" />   
   </span>
 </p>
+
+### Folder 1. Sort
+<p align='center'>
+  <span>
+      <p>Running the program</p>
+      <image width="500" src="./screenshot/sort_run.png" />
+      <p>Testing the program</p>
+      <image width="500" src="./screenshot/sort_test.png" />   
+  </span>
+</p>
