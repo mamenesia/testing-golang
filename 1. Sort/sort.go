@@ -22,10 +22,11 @@ func sortByVowel(s string) string {
 	}
 
 	sort.Strings(tempVowel)
-	Vowel := strings.Join(tempVowel, "")
-
 	sort.Strings(tempConsonant)
-	Consonant := strings.Join(tempConsonant, "")
+	vowel := strings.Join(tempVowel, "")
+	consonant := strings.Join(tempConsonant, "")
 
-	return Vowel + Consonant
+	result := vowel + consonant
+
+	return result
 }
