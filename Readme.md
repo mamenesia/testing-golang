@@ -35,12 +35,12 @@
 
 
 ## Screenshot
-#### Folder 0. Count
+### Folder 0. Count
 <p align='center'>
   <span>
       <p>Running the program</p>
-      <image width="600" src="./screenshot/count_run.png" />
+      <image width="500" src="./screenshot/count_run.png" />
       <p>Testing the program</p>
-      <image width="600" src="./screenshot/count_test.png" />   
+      <image width="500" src="./screenshot/count_test.png" />   
   </span>
 </p>
