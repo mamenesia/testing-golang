@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	fmt.Println(sortByVowel("osama"))
+	result := sortByVowel("osama")
+	fmt.Println("Hasil : ", result)
 }
