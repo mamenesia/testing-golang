@@ -6,5 +6,5 @@ import (
 
 func main() {
 	countVowel, countConsonant := getCount("omama")
-	fmt.Printf("huruf hiduo: %d, huruf mati: %d", countVowel, countConsonant)
+	fmt.Printf("huruf hidup: %d, huruf mati: %d", countVowel, countConsonant)
 }
