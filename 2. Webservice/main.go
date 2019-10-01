@@ -7,6 +7,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", handlerIndex)
+	http.HandleFunc("/count", handlerCount)
 
 	address := "localhost:9000"
 	fmt.Printf("Server started at %s\n", address)

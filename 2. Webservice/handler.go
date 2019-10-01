@@ -12,6 +12,32 @@ func handlerIndex(w http.ResponseWriter, r *http.Request) {
 			Status  int
 			Message string
 		}{
+			{200, "Selamat datang di layanan sorting dan penghitung huruf hidup dan huruf mati."},
+		}
+
+		dataInBytes, err := json.Marshal(data)
+
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(dataInBytes)
+
+	default:
+		http.Error(w, "", http.StatusBadRequest)
+	}
+}
+
+func handlerCount(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+
+		data := []struct {
+			Status  int
+			Message string
+		}{
 			{200, "Selamat datang di layanan penghitung huruf hidup dan huruf mati. Silahkan input kata dengan menggunakan metode 'POST"},
 		}
 
@@ -28,16 +54,16 @@ func handlerIndex(w http.ResponseWriter, r *http.Request) {
 	case "POST":
 		input := r.FormValue("input")
 		countVowel, countConsonant := getCount(input)
-		result := []struct {
+		data := []struct {
 			Status    int
 			Message   string
 			Vowel     int
 			Consonant int
 		}{
-			{200, "Successfully counting vowels and consonants.", countVowel, countConsonant},
+			{200, "Berhasil menghitung huruf hidup dan huruf mati.", countVowel, countConsonant},
 		}
 
-		resultInBytes, err := json.Marshal(result)
+		dataInBytes, err := json.Marshal(data)
 
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -45,7 +71,7 @@ func handlerIndex(w http.ResponseWriter, r *http.Request) {
 		}
 
 		w.Header().Set("Content-Type", "application/json")
-		w.Write(resultInBytes)
+		w.Write(dataInBytes)
 
 	default:
 		http.Error(w, "", http.StatusBadRequest)
