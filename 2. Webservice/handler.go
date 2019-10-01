@@ -77,3 +77,49 @@ func handlerCount(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "", http.StatusBadRequest)
 	}
 }
+
+func handleSort(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		data := []struct {
+			Status  int
+			Message string
+		}{
+			{200, "Selamat datang di layanan sorting. Silahkan input kata dengan menggunakan metode 'POST"},
+		}
+
+		dataInBytes, err := json.Marshal(data)
+
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(dataInBytes)
+
+	case "POST":
+		input := r.FormValue("input")
+		result := sortByVowel(input)
+		data := []struct {
+			Status  int
+			Message string
+			Hasil   string
+		}{
+			{200, "Berhasil sorting input data.", result},
+		}
+
+		dataInBytes, err := json.Marshal(data)
+
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(dataInBytes)
+
+	default:
+		http.Error(w, "", http.StatusBadRequest)
+	}
+}
