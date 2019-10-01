@@ -8,7 +8,7 @@
 <br>
 
 ## Introduction
-[![Golang](https://img.shields.io/badge/Go-v1.13.5-blue)](https://golang.org)
+[![Golang](https://img.shields.io/badge/Go-v1.13-blue)](https://golang.org)
 [![Docker](https://img.shields.io/badge/Docker-v6.60-orange)]()
 
 
